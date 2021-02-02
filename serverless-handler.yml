@@ -10,15 +10,12 @@ provider:
   apiGateway: { shouldStartNameWithService: true }
 
 functions:
-  app:
-    handler: server.start
+  hello:
+    handler: handler.hello
     events:
       - http:
-          path: /
-          method: ANY
-      - http:
-          path: /{proxy+}
-          method: ANY
+          path: hello
+          method: get
 
 plugins:
   - serverless-offline
